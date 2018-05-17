@@ -1,22 +1,55 @@
 # Obiettivo
-1. Raccogliere informazioni data di nascita, di morte, altezza e peso di tutti i file ".txt" presenti nella cartella /esercizi/Esercizio_2
-2. Sistematizzare tutte le informazioni in Dizionari di Python
-3. aggiungere i dizionari con tutte le informazioni ad una lista
+creare una funzione che raccolga tutte le informazioni relative ad una scheda 
 
 tempo a disposizione 30 minuti 
 
 ## consiglio: 
 ```python
-import os # libreria che permette di lavorare con il file sistem
-import numpy as np # importo la libreria numpy che permette di utilizzare il tipo di dato "missing
-dir_di_lavoro = "./esercizi/Esercizio_2/" # directory dove sono presenti i file
+def estrai_data(scheda):
+    '''
+    doc string
+    scheda: passiamo alla funzione la stringa di testo contenente le informazioni
+    '''
 
-#creo una lista vuota dove contenere tutti i file di testo
-lista_schede = []
-
-for item in os.listdir(dir_di_lavoro): # esegue un ciclo su tutte le schede presenti 
-    if item[-3:] == "txt": # dato che nella cartella ci potrebbero essere altri file, esegue le operazioni solo su quelle che terminano per "txt"
-        with open(os.path.join(dir_di_lavoro, item)) as schede:
-            scheda = schede.read()
-            lista_schede.append(scheda)
+    try:
+        Data_Nascita = scheda.split("Nascita: ")[1].split(",")[0]
+    except:
+        Data_Nascita = np.nan
+    try:
+        Descrizione =  scheda.split(" Wikipedia")[0]
+    except:
+        Descrizione = np.nan
+    try:
+        Decesso = scheda.split("Decesso: ")[1].split(",")[0]
+    except:
+        Decesso = np.nan
+    try:
+        Altezza = scheda.split("Altezza: ")[1].split(" m")[0]
+    except:
+        Altezza = np.nan
+    try:
+        Figli = scheda.split("Figli: ")[1].split("\n")[0].split(", ")
+    except:
+        Figli = np.nan
+    try:
+        Coniuge = scheda.split("Coniuge: ")[1].split("\n")[0].split(", ")
+    except:
+        Coniuge = np.nan
+    try:
+        Peso = scheda.split("Peso: ")[1].split(" kg")[0]
+    except:
+        Peso = np.nan
+        
+    
+    dizionario = {
+    "Data_nascita": Data_Nascita,
+    "Decesso": Decesso,
+    "Alezza": Altezza,
+    "Descrizione": Descrizione,
+    "Figli": Figli,
+    "Coniuge": Coniuge,
+    "Peso": Peso
+    }
+    
+    return dizionario
 ```
