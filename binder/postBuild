@@ -1,0 +1,11 @@
+# to install bash kernel
+python -m bash_kernel.install
+go get github.com/ericchiang/pup
+go get -u github.com/tomnomnom/gron
+# to create a folder for node installation
+mkdir -p ~/.local/bin
+npm install mapshaper --prefix ~/.local/bin
+cd ~/.local/bin
+# to let mapshaper and pup be available in the PATH ("~/.local/bin" is in the PATH)
+ln -s ~/.local/bin/node_modules/mapshaper/bin/mapshaper mapshaper
+ln -s ~/go/bin/pup pup
