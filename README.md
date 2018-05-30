@@ -29,4 +29,5 @@ Qui introduzione sintetica all' [**open notebook science**](https://www.google.c
 
 ## risorse generate per il corso
 [Bignami di Pandas e Python](https://github.com/datalifelab/corso-open-notebook-science/blob/master/Python%20e%20Pandas%20-%20Operazioni%20base.ipynb)
+
 [libreria per la conversione dei TSV di Eurostat in DataFrame di Pandas](https://github.com/datalifelab/corso-open-notebook-science/blob/master/Python%20e%20Pandas%20-%20Operazioni%20base.ipynb)
