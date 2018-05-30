@@ -14,6 +14,10 @@
 
 1. Descrivere i risultati con tabelle e grafici
 
+### Eurostat
+per l'esercitazione finale è possibile utilizzare qualsiasi dataset. Si consiglia di usare i
+dati [Eurostat](http://ec.europa.eu/eurostat/data/database?p_p_id=NavTreeportletprod_WAR_NavTreeportletprod_INSTANCE_nPqeVbPXRmWQ&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-2&p_p_col_pos=1&p_p_col_count=2=) con la nostra liberia di importazione [tsv_to_pandas](https://github.com/datalifelab/tsv_to_pandas)
+
 
 ## Per i progetti che vogliono seguire al 100% la filosofia open-notebook-science:
 1. creare un utente github [](https://github.com)
