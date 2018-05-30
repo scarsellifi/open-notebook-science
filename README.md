@@ -27,3 +27,6 @@ Qui introduzione sintetica all' [**open notebook science**](https://www.google.c
  - esercizio 3: dal dizionario di python al DataFrame di Pandas
  - esercitazione finale (4,5 ore): effettuare una ricerca a partire da un dataset a scelta e restituzione dell'analisi su **jupyter notebook** e **github**
 
+## risorse generate per il corso
+[Bignami di Pandas e Python](https://github.com/datalifelab/corso-open-notebook-science/blob/master/Python%20e%20Pandas%20-%20Operazioni%20base.ipynb)
+[libreria per la conversione dei TSV di Eurostat in DataFrame di Pandas](https://github.com/datalifelab/corso-open-notebook-science/blob/master/Python%20e%20Pandas%20-%20Operazioni%20base.ipynb)
