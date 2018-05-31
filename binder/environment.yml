@@ -1,0 +1,31 @@
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - matplotlib
+  - pandas
+  - geopandas
+  - beautifulsoup4
+  - altair
+  - vega_datasets
+  - notebook
+  - vega3
+  - cython
+  - descartes
+  - cartopy
+  - contextily
+  - lxml
+  - csvkit
+  - httpie
+  - ipywidgets
+  - gdal
+  - poppler
+  - ipython-sql
+  - pip:
+    - bash_kernel
+    - yq
+    - requests-html
+    - csvs-to-sqlite
+    - goodtables
+    - pyexcel-cli
+    - daff
