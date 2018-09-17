@@ -1,4 +1,4 @@
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/datalifelab/corso-open-notebook-science/master)
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/datalifelab/corso-open-notebook-science/binder-patch-1)
 
 # corso-open-notebook-science
 
