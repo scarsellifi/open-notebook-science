@@ -33,3 +33,6 @@ Qui introduzione sintetica all' [**open notebook science**](https://www.google.c
 [Bignami di Pandas e Python](https://github.com/datalifelab/corso-open-notebook-science/blob/master/Python%20e%20Pandas%20-%20Operazioni%20base.ipynb)
 
 [libreria per la conversione dei TSV di Eurostat in DataFrame di Pandas](https://github.com/datalifelab/tsv_to_pandas)
+
+[questionario di valutazione della classe](https://docs.google.com/forms/d/e/1FAIpQLScZElTo0WW8Vey0RfMOU493bDlaUHpneKR0Orex97oiVEJbCA/viewform?usp=sf_link) 
+
