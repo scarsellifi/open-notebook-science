@@ -8,3 +8,8 @@ python-lxml
 nodejs
 unzip
 locate
+moreutils
+automake
+autoconf
+libtool
+flex
