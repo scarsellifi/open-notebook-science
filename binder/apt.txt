@@ -6,8 +6,5 @@ libxslt1-dev
 python-dev
 python-lxml
 nodejs
-npm
 unzip
-spatialite-bin
-libsqlite3-mod-spatialite
 locate
