@@ -1,5 +1,3 @@
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/datalifelab/corso-open-notebook-science/master)
-
 # corso-open-notebook-science
 
 ## descrizione:
@@ -37,4 +35,13 @@ Qui introduzione sintetica all' [**open notebook science**](https://www.google.c
 [questionario di valutazione della classe](https://docs.google.com/forms/d/e/1FAIpQLScZElTo0WW8Vey0RfMOU493bDlaUHpneKR0Orex97oiVEJbCA/viewform?usp=sf_link) 
 
 [link per l'installazione di Anaconda python](https://www.anaconda.com/download/)
+
+## per eseguire il corso senza installare Anaconda python
+
+Versione google - [colaboratory](https://colab.research.google.com/github/datalifelab/corso-open-notebook-science/blob/master/corso_su_colaboratory.ipynb)
+
+Versione Binder
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/datalifelab/corso-open-notebook-science/master)
+
+
 
