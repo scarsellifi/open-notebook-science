@@ -1,5 +1,21 @@
 # Esercitazione finale
 
+## Creazione della squadra di lavoro
+Si consiglia di creare una squadra di 5 persone dalle competenze eterogenee di cui almeno un:
+
+* esperto tematico rispettivamente al tema scelto
+* una persona con una buona base statistica
+* una persona con buone capacità di lavoro sui dati
+
+## Individuazione del progetto
+
+si consiglia di rispondere alle seguenti domande:
+
+* scopo della ricerca
+* dati disponibili
+
+
+
 ## Indicazioni generali Documentare ogni passaggio tramite celle markdown
 
 ### Passaggi:
@@ -21,9 +37,9 @@ dati [Eurostat](http://ec.europa.eu/eurostat/data/database?p_p_id=NavTreeportlet
 
 ## Per i progetti che vogliono seguire al 100% la filosofia open-notebook-science:
 1. creare un utente github [](https://github.com)
-1. creare un repository github 
+1. creare un repository github
 1. aprire terminale linux
-1. navigare nella cartella 
+1. navigare nella cartella
 ``` bash
 cd /path/to/your/repo
 ```
@@ -49,9 +65,9 @@ git push origin master
 [](https://bitbucket.org/)
 
 1. creare un utente bitbucket (https://bitbucket.org/)
-1. creare un repository bit-bitbucket 
+1. creare un repository bit-bitbucket
 1. aprire terminale linux
-1. navigare nella cartella 
+1. navigare nella cartella
 
 ``` bash
 cd /path/to/your/repo
@@ -72,6 +88,3 @@ git add -A
 git commit -m "descrizione del commit"
 git push origin master
 ```
-
-
-
