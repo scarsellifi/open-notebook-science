@@ -21,9 +21,9 @@ si consiglia di rispondere alle seguenti domande:
 * definire gli obiettivi conoscitivi da raggiungere
 
 * modalità attraverso la quale si vuole raggiungere lo scopo:
-  * attività messe in campo (analisi dati secondari? Rilevazione sul campo)
-  * dati e risorse disponibili disponibili
-  * output previsti  
+  * attività messe in campo (analisi dati secondari? Rilevazione sul campo?)
+  * dati e risorse disponibili
+  * output previsti
 
 
 * Semplice timetable di progetto.
