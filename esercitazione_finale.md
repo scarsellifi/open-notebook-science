@@ -1,20 +1,35 @@
 # Esercitazione finale
 
-## Creazione della squadra di lavoro
-Si consiglia di creare una squadra di 5 persone dalle competenze eterogenee di cui almeno un:
+# **Fase 1**
 
-* esperto tematico rispettivamente al tema scelto
-* una persona con una buona base statistica
-* una persona con buone capacità di lavoro sui dati
+## Creazione della squadra di lavoro
+Si **consiglia** di creare una squadra di massimo 5-6 persone dalle competenze **eterogenee** di cui almeno un:
+
+* **esperto tematico** rispettivamente al tema scelto
+* una persona con un po' di propensione alla **statistica** e/o alla **metodologia della ricerca**
+* una persona che ha seguito con successo tutte le lezioni di **python base** di questo corso.
+
 
 ## Individuazione del progetto
 
 si consiglia di rispondere alle seguenti domande:
 
-* scopo della ricerca
-* dati disponibili
+* nome / acronimo di progetto
+
+* dare una breve descrizione dello scopo della ricerca
+
+* definire gli obiettivi conoscitivi da raggiungere
+
+* modalità attraverso la quale si vuole raggiungere lo scopo:
+  * attività messe in campo (analisi dati secondari? Rilevazione sul campo)
+  * dati e risorse disponibili disponibili
+  * output previsti  
 
 
+* Semplice timetable di progetto.
+
+
+# **Fase2**
 
 ## Indicazioni generali Documentare ogni passaggio tramite celle markdown
 
