@@ -21,12 +21,21 @@ Qui introduzione sintetica all' [**open notebook science**](https://www.google.c
  - utilizzo di **github** per la condivisione della ricerca
  
  
- ## Esercizi
+ ## Esercizi - percorso the hard way - per utenti che vogliono imparare direttamente su jupyter notebook
  - esercizio 1: sistematizzazione di dati non strutturati presenti in un file di testo in un dizionario di python
  - esercizio 2: sistematizzazione di dati non strutturati con operazione batch su più file di testo in un dizionario di python
  - esercizio 3: dal dizionario di python al DataFrame di Pandas
- - esercitazione finale (4,5 ore): effettuare una ricerca a partire da un dataset a scelta e restituzione dell'analisi su **jupyter notebook** e **github**
-
+ - esercitazione finale: effettuare una ricerca a partire da un dataset a scelta e restituzione dell'analisi su **jupyter notebook**, **github** passanto per **linux**
+ 
+ ## Esercizi - percorso the soft way - per utenti che vogliono esplorare l'open notebook science grazie a **google colaboratory**
+ ### in fase di standardizzazione
+ *questa versione del corso scende meno in profondità sul linguaggio di programmazione di Python ma permette comunque di eseguire semplici elaborazioni con l'utilizzo di Pandas*
+ - esercizio 1: caricamento di un dataset in google colaboratory partendo da un google spreadsheet 
+ - esercizio 2: analisi di base di alcune variabili di un Dataframe
+ - esercizio 3: creazione di semplici grafici 
+ - esercitazione finale: effettuare una ricerca a partire da un dataset a scelta e restituzione dell'analisi su **google colaboratory**
+  
+ 
 ## risorse generate per il corso
 [Bignami di Pandas e Python](https://github.com/datalifelab/corso-open-notebook-science/blob/master/Python%20e%20Pandas%20-%20Operazioni%20base.ipynb)
 
