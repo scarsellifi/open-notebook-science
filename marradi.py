@@ -50,10 +50,10 @@ def dist_frequenza(matrice, colonna, save = False, tipo = "categoriale" , lista_
     
     distribuzione["Percentuale"] = distribuzione["Percentuale"].round(2)
     try:
-      distribuzione["Cumulata"] = distribuzione["Cumulata"].round(2)
-      distribuzione.loc["Totale", "Cumulata"] = ""
+        distribuzione["Cumulata"] = distribuzione["Cumulata"].round(2)
+        distribuzione.loc["Totale", "Cumulata"] = ""
     except:
-      pass
+        pass
     
     if save == False:
         return distribuzione
@@ -62,10 +62,10 @@ def dist_frequenza(matrice, colonna, save = False, tipo = "categoriale" , lista_
         return distribuzione
 
 def estrai_valore(cella):
-  try:
-    return int(cella[0])
-  except:
-    return cella
+    try:
+        return int(cella[0])
+    except:
+        return cella
     
     
 def tabella_di_contingenza(dataframe, colonna_A, colonna_B, ordine_A = False, ordine_B = False, informativo = False):
@@ -91,28 +91,35 @@ def tabella_di_contingenza(dataframe, colonna_A, colonna_B, ordine_A = False, or
     return crosstab
 
 def plot_dist_frequenza(distribuzione, tipo = "categoriale", Y = "Percentuale", x_label="Valori", y_label="Percentuale"):
-  distribuzione = distribuzione.iloc[:-1, :]
-  
-  print(distribuzione)
-  if tipo == "categoriale":
-    distribuzione.index = distribuzione.index.map(lambda x: str(x))
-    g = sns.barplot(x = distribuzione.index, y=Y, data=distribuzione)
-    x = 0
-    for index, row in distribuzione.iterrows():
-      stringa = "N.{},\n {}%".format(row.Frequenze, row.Percentuale)
-      g.text(x,row.Frequenze, stringa, color='black', ha="center")
-      x = x + 1
-    g.set(xlabel=x_label, ylabel=y_label)
-  
-  elif tipo == "ordinale" or tipo == "cardinale":
-    index = distribuzione.index
-    distribuzione.reset_index(inplace = True)
-    g = sns.barplot(x = index, y=Y, data=distribuzione, palette="Blues_d")
-    for index, row in distribuzione.iterrows():
-      stringa = "F.{},\n {}%".format(row.Frequenze, row.Percentuale)
-      
-      g.text(row.name,row.Frequenze, stringa, color='black', ha="center")
-      g.set(xlabel=x_label, ylabel=y_label)
-  return g
+    '''
+    distribuzione: inserire risultato della funzione dist_frequenza
+    tipo: 
+        "categoriale": classi non ordinate
+        "ordinale": classi ordinate
+        "cardinale": valori numerici
+    x_label: etichetta asse x
+    y_label: etichetta_asse y
+    '''
+    
+    import seaborn as sns
+    distribuzione = distribuzione.iloc[:-1, :]
+    if tipo == "categoriale":
+        distribuzione.index = distribuzione.index.map(lambda x: str(x))
+        g = sns.barplot(x = distribuzione.index, y=Y, data=distribuzione)
+        x = 0
+        for index, row in distribuzione.iterrows():
+            stringa = "N.{},\n {}%".format(row.Frequenze, row.Percentuale)
+            g.text(x,row.Frequenze, stringa, color='black', ha="center")
+            x = x + 1
+        g.set(xlabel=x_label, ylabel=y_label)
+    elif tipo == "ordinale" or tipo == "cardinale":
+        index = distribuzione.index
+        distribuzione.reset_index(inplace = True)
+        g = sns.barplot(x = index, y=Y, data=distribuzione, palette="Blues_d")
+        for index, row in distribuzione.iterrows():
+            stringa = "F.{},\n {}%".format(row.Frequenze, row.Percentuale)
+            g.text(row.name,row.Frequenze, stringa, color='black', ha="center")
+        g.set(xlabel=x_label, ylabel=y_label)
+    return g
 
 
