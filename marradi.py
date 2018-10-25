@@ -92,6 +92,7 @@ def tabella_di_contingenza(dataframe, colonna_A, colonna_B, ordine_A = False, or
     return crosstab
 
 def plot_dist_frequenza(distribuzione, tipo = "categoriale", Y = "Percentuale", x_label="Valori", y_label="Percentuale", figsize = (12,8)):
+    
     '''
     distribuzione: inserire risultato della funzione dist_frequenza
     tipo: 
@@ -101,7 +102,7 @@ def plot_dist_frequenza(distribuzione, tipo = "categoriale", Y = "Percentuale", 
     x_label: etichetta asse x
     y_label: etichetta_asse y
     '''
-    
+    import matplotlib.pyplot as plt
     import seaborn as sns
     distribuzione = distribuzione.iloc[:-1, :]
     fig, ax = plt.subplots(figsize=figsize)
