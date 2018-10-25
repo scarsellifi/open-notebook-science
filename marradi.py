@@ -39,19 +39,20 @@ def dist_frequenza(matrice, colonna, save = False, tipo = "categoriale" , lista_
     elif tipo == "cardinale":
         distribuzione.sort_index(inplace = True)
         
-    try:
-        distribuzione["Cumulata"] = distribuzione["Percentuale"].cumsum()
-        
-    except:
-        print("errore nella rimozione dell'incrocio Totale - Cumulata")    
+        try:
+            distribuzione["Cumulata"] = distribuzione["Percentuale"].cumsum()
+
+        except:
+            print("errore nella rimozione dell'incrocio Totale - Cumulata")    
 
 
     distribuzione.loc["Totale"] = distribuzione.apply(sum)
     
     distribuzione["Percentuale"] = distribuzione["Percentuale"].round(2)
     try:
-        distribuzione["Cumulata"] = distribuzione["Cumulata"].round(2)
-        distribuzione.loc["Totale", "Cumulata"] = ""
+        #distribuzione["Cumulata"] = distribuzione["Cumulata"].round(2)
+        if tipo == "cardinale" or tipo == "ordinale":
+            distribuzione.loc["Totale", "Cumulata"] = ""
     except:
         pass
     
@@ -90,7 +91,7 @@ def tabella_di_contingenza(dataframe, colonna_A, colonna_B, ordine_A = False, or
     
     return crosstab
 
-def plot_dist_frequenza(distribuzione, tipo = "categoriale", Y = "Percentuale", x_label="Valori", y_label="Percentuale"):
+def plot_dist_frequenza(distribuzione, tipo = "categoriale", Y = "Percentuale", x_label="Valori", y_label="Percentuale", figsize = (12,8)):
     '''
     distribuzione: inserire risultato della funzione dist_frequenza
     tipo: 
@@ -103,23 +104,29 @@ def plot_dist_frequenza(distribuzione, tipo = "categoriale", Y = "Percentuale", 
     
     import seaborn as sns
     distribuzione = distribuzione.iloc[:-1, :]
+    fig, ax = plt.subplots(figsize=figsize)
     if tipo == "categoriale":
         distribuzione.index = distribuzione.index.map(lambda x: str(x))
-        g = sns.barplot(x = distribuzione.index, y=Y, data=distribuzione)
+        g = sns.barplot(x = distribuzione.index, y=Y, data=distribuzione, ax=ax )
+        
         x = 0
         for index, row in distribuzione.iterrows():
             stringa = "N.{},\n {}%".format(row.Frequenze, row.Percentuale)
-            g.text(x,row.Frequenze, stringa, color='black', ha="center")
+            g.text(x,row[Y]- row[Y]*0.50, stringa, color='black', ha="center")
             x = x + 1
+        g.set_xticklabels(g.get_xticklabels(), rotation=90)
         g.set(xlabel=x_label, ylabel=y_label)
     elif tipo == "ordinale" or tipo == "cardinale":
         index = distribuzione.index
         distribuzione.reset_index(inplace = True)
-        g = sns.barplot(x = index, y=Y, data=distribuzione, palette="Blues_d")
+        g = sns.barplot(x = index, y=Y, data=distribuzione, palette="Blues_d", ax=ax )
         for index, row in distribuzione.iterrows():
             stringa = "F.{},\n {}%".format(row.Frequenze, row.Percentuale)
-            g.text(row.name,row.Frequenze, stringa, color='black', ha="center")
+            g.text(row.name,row[Y] - row[Y]*0.50 , stringa, color='black', ha="center")
+        g.set_xticklabels(g.get_xticklabels(), rotation=90)
         g.set(xlabel=x_label, ylabel=y_label)
+        
     return g
+
 
 
