@@ -129,5 +129,28 @@ def plot_dist_frequenza(distribuzione, tipo = "categoriale", Y = "Percentuale", 
         
     return g
 
+def recode_da_dizionario(x, dizionario, nan = False, totale = True):
+  '''
+  da applicare ad un vettore o ad una matrice dati tramite la funzione map, applymap
+  x: il valore da ricodificare 
+  dizionario: il dizionario da cui estrarre i valori di recodifica E.G.
+                            {1: "sinistra",
+                            2: "centro sinistra",
+                            3: "centro",
+                            4: "centro destra",
+                            5: "destra"}
+  nan: True, ricodifica i valori non presenti dentro il dizionario in nan
+  totale: se True non ricodifica la modalità "Totale" generata automaticamente da dist_frequenza in nan
+  
+  '''  
+  try:
+    return dizionario[x]
+  except:
+    if x == "Totale" and totale == True:
+        return x
+    elif nan == True:
+        return np.nan
+    else:
+        return x
 
 
