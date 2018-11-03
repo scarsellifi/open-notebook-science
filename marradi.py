@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from scipy.stats.contingency import expected_freq
 
 def dist_frequenza(matrice, colonna, save = False, tipo = "categoriale" , lista_ordinale = False):
     '''
