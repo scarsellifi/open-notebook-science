@@ -92,7 +92,7 @@ def tabella_di_contingenza(dataframe, colonna_A, colonna_B, ordine_A = False, or
     
     return crosstab
 
-def plot_dist_frequenza(distribuzione, tipo = "categoriale", Y = "Percentuale", x_label="Valori", y_label="Percentuale", figsize = (12,8)):
+def plot_dist_frequenza2(distribuzione, tipo = "categoriale", Y = "Percentuale", x_label="Valori", y_label="Percentuale", figsize = (12,8), missing = None):
     
     '''
     distribuzione: inserire risultato della funzione dist_frequenza
@@ -111,9 +111,15 @@ def plot_dist_frequenza(distribuzione, tipo = "categoriale", Y = "Percentuale", 
       p_color = "Blues_d"
     elif tipo == "cardinale":
       p_color = "Blues_d"
+      print("------------------------------------------------------------------------------")
       print("si consiglia di utilizzare una diversa visualizzazione: cerca sul motore di ricerca sns.distplot ed applicalo sulla matrice dati originaria ")
-    
+      print("------------------------------------------------------------------------------")
     distribuzione = distribuzione.iloc[:-1, :]
+    
+    if missing != None:
+      distribuzione = distribuzione.drop(missing)
+    
+    
     fig, ax = plt.subplots(figsize=figsize)
     x = 0
     
