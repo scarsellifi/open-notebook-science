@@ -109,7 +109,7 @@ def plot_dist_frequenza(distribuzione, tipo = "categoriale", Y = "Percentuale", 
     fig, ax = plt.subplots(figsize=figsize)
     if tipo == "categoriale":
         #distribuzione.index = distribuzione.index.map(lambda x: str(x))
-        g = sns.barplot(x = distribuzione.index, y=Y, data=distribuzione, ax=ax )
+        g = sns.barplot(x = distribuzione.index, y=Y, data=distribuzione, ax=ax , order=distribuzione.index)
         
         x = 0
         for index, row in distribuzione.iterrows():
