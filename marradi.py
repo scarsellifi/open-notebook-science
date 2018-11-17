@@ -92,7 +92,7 @@ def tabella_di_contingenza(dataframe, colonna_A, colonna_B, ordine_A = False, or
     
     return crosstab
 
-def plot_dist_frequenza2(distribuzione, tipo = "categoriale", Y = "Percentuale", x_label="Valori", y_label="Percentuale", figsize = (12,8), missing = None):
+def plot_dist_frequenza(distribuzione, tipo = "categoriale", Y = "Percentuale", x_label="Valori", y_label="Percentuale", figsize = (12,8), missing = None):
     
     '''
     distribuzione: inserire risultato della funzione dist_frequenza
