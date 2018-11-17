@@ -92,7 +92,7 @@ def tabella_di_contingenza(dataframe, colonna_A, colonna_B, ordine_A = False, or
     
     return crosstab
 
-def plot_dist_frequenza(distribuzione, tipo = "categoriale", Y = "Percentuale", x_label="Valori", y_label="Percentuale", figsize = (12,8)):
+def plot_dist_frequenza(distribuzione, tipo = "categoriale", Y = "Percentuale", x_label="Valori", y_label="Percentuale", figsize = (12,8), missing = None):
     
     '''
     distribuzione: inserire risultato della funzione dist_frequenza
@@ -105,29 +105,32 @@ def plot_dist_frequenza(distribuzione, tipo = "categoriale", Y = "Percentuale", 
     '''
     import matplotlib.pyplot as plt
     import seaborn as sns
-    distribuzione = distribuzione.iloc[:-1, :]
-    fig, ax = plt.subplots(figsize=figsize)
     if tipo == "categoriale":
-        #distribuzione.index = distribuzione.index.map(lambda x: str(x))
-        g = sns.barplot(x = distribuzione.index, y=Y, data=distribuzione, ax=ax , order=distribuzione.index)
-        
-        x = 0
-        for index, row in distribuzione.iterrows():
-            stringa = "N.{},\n {}%".format(row.Frequenze, row.Percentuale)
-            g.text(x,row[Y]- row[Y]*0.50, stringa, color='black', ha="center")
-            x = x + 1
-        g.set_xticklabels(g.get_xticklabels(), rotation=90)
-        g.set(xlabel=x_label, ylabel=y_label)
-    elif tipo == "ordinale" or tipo == "cardinale":
-        index = distribuzione.index
-        distribuzione.reset_index(inplace = True)
-        g = sns.barplot(x = index, y=Y, data=distribuzione, palette="Blues_d", ax=ax )
-        for index, row in distribuzione.iterrows():
-            stringa = "F.{},\n {}%".format(row.Frequenze, row.Percentuale)
-            g.text(row.name,row[Y] - row[Y]*0.50 , stringa, color='black', ha="center")
-        g.set_xticklabels(g.get_xticklabels(), rotation=90)
-        g.set(xlabel=x_label, ylabel=y_label)
-        
+      p_color = 'muted'
+    elif tipo == "ordinale":
+      p_color = "Blues_d"
+    elif tipo == "cardinale":
+      p_color = "Blues_d"
+      print("------------------------------------------------------------------------------")
+      print("si consiglia di utilizzare una diversa visualizzazione: cerca sul motore di ricerca sns.distplot ed applicalo sulla matrice dati originaria ")
+      print("------------------------------------------------------------------------------")
+    distribuzione = distribuzione.iloc[:-1, :]
+    
+    if missing != None:
+      distribuzione = distribuzione.drop(missing)
+    
+    
+    fig, ax = plt.subplots(figsize=figsize)
+    x = 0
+    
+    #distribuzione.index = distribuzione.index.map(lambda x: str(x))
+    g = sns.barplot(x = distribuzione.index, y=Y, data=distribuzione, ax=ax, palette=p_color,  order=distribuzione.index)
+    for index, row in distribuzione.iterrows():
+        stringa = "N.{},\n {}%".format(row.Frequenze, row.Percentuale)
+        g.text(x, row[Y]- row[Y]*0.50, stringa, color="black", ha="center")
+        x = x + 1
+    g.set_xticklabels(g.get_xticklabels(), rotation=90)
+    g.set(xlabel=x_label, ylabel=y_label)
     return g
 
 def recode_da_dizionario(x, dizionario, nan = False, totale = True):
