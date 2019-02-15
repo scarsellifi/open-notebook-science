@@ -70,7 +70,7 @@ def estrai_valore(cella):
         return cella
     
     
-def tabella_di_contingenza(dataframe, colonna_A, colonna_B, ordine_A = False, ordine_B = False, informativo = False):
+def tabella_di_contingenza(dataframe, colonna_A, colonna_B, ordine_A = False, ordine_B = False, informativo = False, norm_axis = False):
     '''
     dataframe: inserire la tabella su cui si vuole fare la tabulazione incrociata
     colonna_A: inserire la stringa di testo che rappresenta l'intestazione della singola colonna
@@ -82,14 +82,24 @@ def tabella_di_contingenza(dataframe, colonna_A, colonna_B, ordine_A = False, or
     # qui aggiuntere tabella con scarti e percentuale.
     # qui andrebbero inserite anche le percentuali di riga
     crosstab = pd.crosstab(dataframe[colonna_A],dataframe[colonna_B], margins = True)
+    # normalize : boolean, {‘all’, ‘index’, ‘columns’}
+    
     if ordine_A != False:
         crosstab = crosstab.reindex(ordine_A, axis = 0)
     if ordine_B != False:
         crosstab = crosstab.reindex(ordine_B, axis = 1)
     if informativo == True:
         expected = pd.DataFrame(expected_freq(crosstab), index =  crosstab.index, columns = crosstab.columns)
-        crosstab = crosstab.applymap(str) + " " + expected.applymap(lambda x: ("( {:.2f})".format(x) )) + " " + (crosstab - expected).applymap(lambda x: ("( {:.2f})".format(x) ))
-    
+        crosstab_norm_all = pd.crosstab(dataframe[colonna_A],dataframe[colonna_B], margins = True, normalize = "all").applymap(lambda x: ("( {:.2f})".format(x) ))
+        crosstab_norm_index = pd.crosstab(dataframe[colonna_A],dataframe[colonna_B], margins = True, normalize = "index").applymap(lambda x: ("( {:.2f})".format(x) ))
+        crosstab_norm_row = pd.crosstab(dataframe[colonna_A],dataframe[colonna_B], margins = True, normalize = "columns").applymap(lambda x: ("( {:.2f})".format(x) ))
+        if norm_axis == False:
+            crosstab = crosstab.applymap(str) + " " + expected.applymap(lambda x: ("( {:.2f})".format(x) )) + " " + (crosstab - expected).applymap(lambda x: ("( {:.2f})".format(x) )) + " " + crosstab_norm_all
+        if norm_axis == "index":
+            crosstab = crosstab.applymap(str) + " " + expected.applymap(lambda x: ("( {:.2f})".format(x) )) + " " + (crosstab - expected).applymap(lambda x: ("( {:.2f})".format(x) )) + " " + crosstab_norm_index
+        if norm_axis == "row":
+            crosstab = crosstab.applymap(str) + " " + expected.applymap(lambda x: ("( {:.2f})".format(x) )) + " " + (crosstab - expected).applymap(lambda x: ("( {:.2f})".format(x) )) + " " + crosstab_norm_row
+      
     return crosstab
 
 def plot_dist_frequenza(distribuzione, tipo = "categoriale", Y = "Percentuale", x_label="Valori", y_label="Percentuale", figsize = (12,8), missing = None):
