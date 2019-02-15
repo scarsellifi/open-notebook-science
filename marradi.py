@@ -92,13 +92,13 @@ def tabella_di_contingenza(dataframe, colonna_A, colonna_B, ordine_A = False, or
         expected = pd.DataFrame(expected_freq(crosstab), index =  crosstab.index, columns = crosstab.columns)
         crosstab_norm_all = pd.crosstab(dataframe[colonna_A],dataframe[colonna_B], margins = True, normalize = "all").applymap(lambda x: ("( {:.2f})".format(x) ))
         crosstab_norm_index = pd.crosstab(dataframe[colonna_A],dataframe[colonna_B], margins = True, normalize = "index").applymap(lambda x: ("( {:.2f})".format(x) ))
-        crosstab_norm_row = pd.crosstab(dataframe[colonna_A],dataframe[colonna_B], margins = True, normalize = "columns").applymap(lambda x: ("( {:.2f})".format(x) ))
+        crosstab_norm_columns = pd.crosstab(dataframe[colonna_A],dataframe[colonna_B], margins = True, normalize = "columns").applymap(lambda x: ("( {:.2f})".format(x) ))
         if norm_axis == False:
             crosstab = crosstab.applymap(str) + " " + expected.applymap(lambda x: ("( {:.2f})".format(x) )) + " " + (crosstab - expected).applymap(lambda x: ("( {:.2f})".format(x) )) + " " + crosstab_norm_all
         if norm_axis == "index":
             crosstab = crosstab.applymap(str) + " " + expected.applymap(lambda x: ("( {:.2f})".format(x) )) + " " + (crosstab - expected).applymap(lambda x: ("( {:.2f})".format(x) )) + " " + crosstab_norm_index
-        if norm_axis == "row":
-            crosstab = crosstab.applymap(str) + " " + expected.applymap(lambda x: ("( {:.2f})".format(x) )) + " " + (crosstab - expected).applymap(lambda x: ("( {:.2f})".format(x) )) + " " + crosstab_norm_row
+        if norm_axis == "columns":
+            crosstab = crosstab.applymap(str) + " " + expected.applymap(lambda x: ("( {:.2f})".format(x) )) + " " + (crosstab - expected).applymap(lambda x: ("( {:.2f})".format(x) )) + " " + crosstab_norm_columns
       
     return crosstab
 
