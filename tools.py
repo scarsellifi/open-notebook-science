@@ -73,14 +73,14 @@ def google_grid_question(data, id_col, categories):
     data = data.filter(regex=id_col)
     data.columns = data.filter(regex=id_col).columns.map(lambda x: x.split("[")[1].split("]")[0]) 
     data.replace('',np.nan, inplace = True)
-    for item in categories:
-        data[id_col + "_" + item] = np.nan 
+    for word in categories:
+        data[id_col + "_" + word] = np.nan 
         
     for column in data.columns:
         for row in data.index:
             if isinstance(data.loc[row, column],str):
                 for word in categories:
                     if data.loc[row, column].find(word) != -1:
-                        data.loc[row, id_col + "_" + item] = column
+                        data.loc[row, id_col + "_" + word] = column
     return data
 
