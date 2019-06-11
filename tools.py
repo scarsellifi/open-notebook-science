@@ -1,5 +1,7 @@
 import pandas as pd
+import numpy as np
 
+#IMPORT DATA
 def download_gspread(file_name, sheet_name = "Foglio1", key = False, format = "wide", virgola_italiano = False, gc = None):
   '''questa funzione, dato il nome del file di google spreadsheet
   e dello specifico foglio di calcolo (opzionale) di google
@@ -56,3 +58,29 @@ def download_gspread(file_name, sheet_name = "Foglio1", key = False, format = "w
   dati = dati.applymap(str_to_float)
   dati = dati.apply(lambda x: pd.to_numeric(x, errors='ignore'))
   return dati
+
+# SOLVE STRANGE GOOGLE TABULAR DATA OUTPUT FROM GOOGLE FORM
+def google_grid_question(data, id_col, categories):
+    '''
+    data: selezionare il dataset su cui effettuare l'operazione
+    id_col: identificativo comune a tutte le colonne della risposta griglia
+    categories: una lista con le categorie utilizzate per discriminare la risposta 
+    
+    esempio di utilizzo: risposta_griglia_google(data = risposte, id_col = "1.9.8", categories = ["Padre", "Madre"])["Padre"]
+    
+    '''
+    data = data.copy()
+    data = data.filter(regex=id_col)
+    data.columns = data.filter(regex=id_col).columns.map(lambda x: x.split("[")[1].split("]")[0]) 
+    data.replace('',np.nan, inplace = True)
+    for item in categories:
+        data[item] = np.nan 
+        
+    for column in data.columns:
+        for row in data.index:
+            if isinstance(data.loc[row, column],str):
+                for word in categories:
+                    if data.loc[row, column].find(word) != -1:
+                        data.loc[row, word] = column
+    return data
+
