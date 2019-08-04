@@ -60,8 +60,9 @@ def download_gspread(file_name, sheet_name = "Foglio1", key = False, format = "w
   return dati
 
 # SOLVE STRANGE GOOGLE TABULAR DATA OUTPUT FROM GOOGLE FORM
-def google_grid_question(data, id_col, categories):
+def google_grid_question_single(data, id_col, categories):
     '''
+    valido per grid question con singola risposta per colonna 
     data: selezionare il dataset su cui effettuare l'operazione
     id_col: identificativo comune a tutte le colonne della risposta griglia
     categories: una lista con le categorie utilizzate per discriminare la risposta 
@@ -84,3 +85,35 @@ def google_grid_question(data, id_col, categories):
                         data.loc[row, id_col + "_" + word] = column
     return data
 
+# questo deve essere modificato per la risposta multipla
+def google_grid_question_multiple(data, id_col, categories):
+    '''
+    valido per grid question con risposta per colonna multipla 
+    data: selezionare il dataset su cui effettuare l'operazione
+    id_col: identificativo comune a tutte le colonne della risposta griglia
+    categories: una lista con le categorie utilizzate per discriminare la risposta 
+    
+    esempio di utilizzo: risposta_griglia_google(data = risposte, id_col = "1.9.8", categories = ["Padre", "Madre"])["Padre"]
+    
+    '''
+    import numpy as np
+    data = data.copy()
+    data = data.filter(regex=id_col)
+    data.columns = data.filter(regex=id_col).columns.map(lambda x: x.split("[")[1].split("]")[0]) 
+    data.replace('',np.nan, inplace = True)
+    for word in categories:
+        data[id_col + "_" + word] = np.nan 
+    for word in categories:    
+        for row in data.index:
+        
+            risultato = []
+            for column in data.columns:
+            
+                if isinstance(data.loc[row, column],str):
+                    
+                    if data.loc[row, column].find(word) != -1:
+                        
+                        risultato.append(column)
+                        #print(risultato)
+            data.loc[row, id_col + "_" + word] = str(risultato)
+    return data
