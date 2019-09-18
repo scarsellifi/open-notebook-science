@@ -43,6 +43,8 @@ Qui introduzione sintetica all' [**open notebook science**](https://www.google.c
 
 [questionario di valutazione della classe](https://docs.google.com/forms/d/e/1FAIpQLScZElTo0WW8Vey0RfMOU493bDlaUHpneKR0Orex97oiVEJbCA/viewform?usp=sf_link) 
 
+[slide provvisorie per il corso open notebook science - analisi territoriali](https://docs.google.com/presentation/d/145PjVosashTydffsPrVlm6SmnzHtYyiogEauqUp0ANw/edit?usp=sharing)
+
 [link per l'installazione di Anaconda python](https://www.anaconda.com/download/)
 
 ## per eseguire il corso senza installare Anaconda python
