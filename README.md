@@ -47,7 +47,7 @@ Qui introduzione sintetica all' [**open notebook science**](https://www.google.c
 
 ## per eseguire il corso senza installare Anaconda python
 
-Versione google - [colaboratory](https://github.com/datalifelab/corso-open-notebook-science/blob/master/corso_su_colaboratory.ipynb)
+Versione google - [colaboratory](https://colab.research.google.com/github/datalifelab/corso-open-notebook-science/blob/master/colaboratory_file_di_partenza.ipynb)
 
 Versione Binder
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/datalifelab/corso-open-notebook-science/master)
