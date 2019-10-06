@@ -1,3 +1,7 @@
+import pandas as pd
+import numpy as np
+from scipy.stats.contingency import expected_freq
+
 def download_gspread(file_name, sheet_name = "Foglio1", key = False, format = "wide", virgola_italiano = False, gc = None):
   '''questa funzione, dato il nome del file di google spreadsheet
   e dello specifico foglio di calcolo (opzionale) di google
